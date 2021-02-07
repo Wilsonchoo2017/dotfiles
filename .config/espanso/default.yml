@@ -1,0 +1,65 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "/home/wilson/.config/espanso/default.yml"
+  
+  # Show IP
+  - trigger: ":ip"
+    replace: "ip addr show"
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Shell commands
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo Hello from your shell"
+
+  # TaskWarrior Commands
+  - trigger: ":twa"
+    replace: "task add "
+
+  - trigger: ":twl"
+    replace: "task list"
+
+  - trigger: ":twmpro"
+    replace: "modify project:"
+
+  - trigger: ":twmprio"
+    replace: "modify priority:"
+  
+  ## Common Tags
+  - trigger: ":rsh"
+    force_clipboard: true
+    replace: " Research"
+
+  - trigger: ":wk"
+    force_clipboard: true
+    replace: " Work"
+
+  - trigger: ":bk"
+    force_clipboard: true
+    replace: " Book"
+
+  - trigger: ":ln"
+    force_clipboard: true
+    replace: " Learn"
+
